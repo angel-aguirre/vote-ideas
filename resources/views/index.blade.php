@@ -52,7 +52,7 @@
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">A random title goes here</a>
                     </h4>
-                    <div class="text-gray-600 mt-3">
+                    <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus officia libero expedita quas, harum modi vel ad. Veritatis, obcaecati porro eius aspernatur itaque mollitia tenetur architecto rem laborum modi numquam, autem eveniet sunt nostrum quae, nesciunt nobis maxime hic animi repudiandae accusantium eaque delectus doloremque impedit. Sapiente dignissimos aliquid aut assumenda facere laboriosam expedita doloribus aperiam atque labore asperiores voluptates dolores, consequatur corporis vitae accusantium saepe modi iusto magnam cumque quos! Impedit omnis asperiores similique? Quis iure unde ea, in odio, odit iusto adipisci ab, ex neque accusamus? Voluptatibus facere quidem velit tenetur itaque minus repellendus quos, omnis illo consequatur?
                     </div>
 
@@ -101,7 +101,7 @@
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">Passwordless login for the site (magic link)</a>
                     </h4>
-                    <div class="text-gray-600 mt-3">
+                    <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus officia libero expedita quas, harum modi vel ad. Veritatis, obcaecati porro eius aspernatur itaque mollitia tenetur architecto rem laborum modi numquam, autem eveniet sunt nostrum quae, nesciunt nobis maxime hic animi repudiandae accusantium eaque delectus doloremque impedit. Sapiente dignissimos aliquid aut assumenda facere laboriosam expedita doloribus aperiam atque labore asperiores voluptates dolores, consequatur corporis vitae accusantium saepe modi iusto magnam cumque quos! Impedit omnis asperiores similique? Quis iure unde ea, in odio, odit iusto adipisci ab, ex neque accusamus? Voluptatibus facere quidem velit tenetur itaque minus repellendus quos, omnis illo consequatur?
                     </div>
 
@@ -146,7 +146,7 @@
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">Another random title goes here</a>
                     </h4>
-                    <div class="text-gray-600 mt-3">
+                    <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus officia libero expedita quas, harum modi vel ad. Veritatis, obcaecati porro eius aspernatur itaque mollitia tenetur architecto rem laborum modi numquam, autem eveniet sunt nostrum quae, nesciunt nobis maxime hic animi repudiandae accusantium eaque delectus doloremque impedit. Sapiente dignissimos aliquid aut assumenda facere laboriosam expedita doloribus aperiam atque labore asperiores voluptates dolores, consequatur corporis vitae accusantium saepe modi iusto magnam cumque quos! Impedit omnis asperiores similique? Quis iure unde ea, in odio, odit iusto adipisci ab, ex neque accusamus? Voluptatibus facere quidem velit tenetur itaque minus repellendus quos, omnis illo consequatur?
                     </div>
 
@@ -191,7 +191,7 @@
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">Another random title goes here</a>
                     </h4>
-                    <div class="text-gray-600 mt-3">
+                    <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus officia libero expedita quas, harum modi vel ad. Veritatis, obcaecati porro eius aspernatur itaque mollitia tenetur architecto rem laborum modi numquam, autem eveniet sunt nostrum quae, nesciunt nobis maxime hic animi repudiandae accusantium eaque delectus doloremque impedit. Sapiente dignissimos aliquid aut assumenda facere laboriosam expedita doloribus aperiam atque labore asperiores voluptates dolores, consequatur corporis vitae accusantium saepe modi iusto magnam cumque quos! Impedit omnis asperiores similique? Quis iure unde ea, in odio, odit iusto adipisci ab, ex neque accusamus? Voluptatibus facere quidem velit tenetur itaque minus repellendus quos, omnis illo consequatur?
                     </div>
 
@@ -236,7 +236,7 @@
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">Another random title goes here</a>
                     </h4>
-                    <div class="text-gray-600 mt-3">
+                    <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus officia libero expedita quas, harum modi vel ad. Veritatis, obcaecati porro eius aspernatur itaque mollitia tenetur architecto rem laborum modi numquam, autem eveniet sunt nostrum quae, nesciunt nobis maxime hic animi repudiandae accusantium eaque delectus doloremque impedit. Sapiente dignissimos aliquid aut assumenda facere laboriosam expedita doloribus aperiam atque labore asperiores voluptates dolores, consequatur corporis vitae accusantium saepe modi iusto magnam cumque quos! Impedit omnis asperiores similique? Quis iure unde ea, in odio, odit iusto adipisci ab, ex neque accusamus? Voluptatibus facere quidem velit tenetur itaque minus repellendus quos, omnis illo consequatur?
                     </div>
 
