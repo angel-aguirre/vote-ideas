@@ -9,3 +9,49 @@
     background-origin: border-box;
     background-clip: content-box, border-box;
 }
+
+/* Linea vertical a la izquierda de los comentarios */
+.comments-container::before {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -40px;
+    content: '';
+    width: 3px;
+    height: 100%;
+    background-color: #edf0f6;
+}
+
+.comment-container::before {
+    position: absolute;
+    display: block;
+    top: 57px;
+    content: '';
+    width: 23px;
+    height: 3px;
+    background-color: #edf0f6;
+    left: -40px;
+}
+
+.comment-container:last-child::after {
+    position: absolute;
+    display: block;
+    top: 60px;
+    content: '';
+    width: 3px;
+    height: calc(100% - 60px);
+    background-color: theme('colors.gray-background');
+    left: -40px;
+}
+
+.is-admin::before {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    border-radius: 38px;
+    border: 7px solid #fff;
+    box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.08);
+    left: -58px;
+    background: theme('colors.purple');
+    opacity: 1;
+}
