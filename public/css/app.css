@@ -1135,6 +1135,12 @@ select {
 .z-50 {
 	z-index: 50;
 }
+.z-10 {
+	z-index: 10;
+}
+.z-20 {
+	z-index: 20;
+}
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
@@ -1349,14 +1355,20 @@ select {
 .w-32 {
 	width: 8rem;
 }
-.w-36 {
-	width: 9rem;
-}
-.w-70 {
-	width: 17.5rem;
+.w-104 {
+	width: 26rem;
 }
 .w-1\/2 {
 	width: 50%;
+}
+.w-36 {
+	width: 9rem;
+}
+.w-76 {
+	width: 19rem;
+}
+.w-70 {
+	width: 17.5rem;
 }
 .w-175 {
 	width: 43.75rem;
@@ -1434,6 +1446,12 @@ select {
 .cursor-pointer {
 	cursor: pointer;
 }
+.select-none {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
 .list-inside {
 	list-style-position: inside;
 }
@@ -1498,15 +1516,20 @@ select {
 	margin-right: calc(1rem * var(--tw-space-x-reverse));
 	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-y-reverse: 0;
+	margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(0.75rem * var(--tw-space-x-reverse));
 	margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-y-reverse: 0;
-	margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+	margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 .space-x-10 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
@@ -1847,6 +1870,9 @@ select {
 .font-bold {
 	font-weight: 700;
 }
+.font-normal {
+	font-weight: 400;
+}
 .uppercase {
 	text-transform: uppercase;
 }
@@ -1918,6 +1944,26 @@ select {
 .text-gray-300 {
 	--tw-text-opacity: 1;
 	color: rgba(212, 212, 212, var(--tw-text-opacity));
+}
+.text-black {
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+.text-purple {
+	--tw-text-opacity: 1;
+	color: rgba(139, 96, 237, var(--tw-text-opacity));
+}
+.text-yellow {
+	--tw-text-opacity: 1;
+	color: rgba(255, 199, 60, var(--tw-text-opacity));
+}
+.text-green {
+	--tw-text-opacity: 1;
+	color: rgba(26, 171, 139, var(--tw-text-opacity));
+}
+.text-red {
+	--tw-text-opacity: 1;
+	color: rgba(236, 69, 79, var(--tw-text-opacity));
 }
 .text-blue {
 	--tw-text-opacity: 1;
