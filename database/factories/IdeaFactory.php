@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -17,6 +18,9 @@ class IdeaFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
+            'category_id' => function() {
+                return Category::query()->inRandomOrder()->first()->id;
+            },
             'title' => Str::ucfirst($this->faker->words(4, true)),
             'description' => $this->faker->paragraph(5),
         ];

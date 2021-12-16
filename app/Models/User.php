@@ -61,7 +61,7 @@ class User extends Authenticatable
     ];
 
     public function ideas() {
-        return $this->hasManu(Idea::class);
+        return $this->hasMany(Idea::class);
     }
 
     public function getAvatarAttribute() {
