@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Category;
+use App\Models\Status;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,5 +34,9 @@ class Idea extends Model
 
     public function category() {
         return $this->belongsTo(Category::class);
+    }
+
+    public function status() {
+        return $this->belongsTo(Status::class);
     }
 }
