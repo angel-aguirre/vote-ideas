@@ -102,13 +102,13 @@ class ShowIdeasTest extends TestCase
 
         $response = $this->get('/');
 
-        $response->assertSee($ideaOne->title);
-        $response->assertDontSee($ideaSix->title);
+        $response->assertDontSee($ideaOne->title);
+        $response->assertSee($ideaSix->title);
 
         $response = $this->get('/?page=2');
 
-        $response->assertDontSee($ideaOne->title);
-        $response->assertSee($ideaSix->title);
+        $response->assertSee($ideaOne->title);
+        $response->assertDontSee($ideaSix->title);
     }
 
     public function test_same_idea_title_different_slugs() {
