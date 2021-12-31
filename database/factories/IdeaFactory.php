@@ -18,7 +18,9 @@ class IdeaFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
+            'user_id' => function() {
+                return User::query()->inRandomOrder()->first()->id;
+            },
             'category_id' => function() {
                 return Category::query()->inRandomOrder()->first()->id;
             },

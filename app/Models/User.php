@@ -60,10 +60,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function ideas() {
-        return $this->hasMany(Idea::class);
-    }
-
     public function getAvatarAttribute() {
         $firstCharacter = $this->email[0];
 
@@ -77,5 +73,16 @@ class User extends Authenticatable
             .'&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-'
             .$integerToUse
             .'.png';
+    }
+
+    /**
+     * DB relations
+     */
+    public function ideas() {
+        return $this->hasMany(Idea::class);
+    }
+
+    public function votes() {
+        return $this->belongsToMany(Idea::class, 'votes');
     }
 }
