@@ -87,8 +87,40 @@ class VoteIndexPageTest extends TestCase
             'idea' => $idea,
             'votesCount' => 5,
         ])
-            ->assertSet('votesCount', 5)
-            ->assertSeeHtml('<div class="font-semibold text-2xl">5</div>')
-            ->assertSeeHtml('<div class="text-sm font-bold leading-none">5</div>');
+            ->assertSet('votesCount', 5);
+    }
+
+    public function test_user_who_is_logged_in_show_voted_if_idea_already_voted_for() {
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'title' => 'Idea Title',
+            'description' => 'Idea Description',
+        ]);
+
+        Vote::factory()->create([
+            'user_id' => $user->id,
+            'idea_id' => $idea->id,
+        ]);
+
+        $response = $this->actingAs($user)
+            ->get(route('idea.index'));
+        
+        $ideaWithVotes = $response['ideas']->items()[0];
+
+        Livewire::actingAs($user)
+            ->test(IdeaIndex::class, [
+                'idea' => $ideaWithVotes,
+                'votesCount' => 5,
+            ])
+            ->assertSet('hasVoted', true)
+            ->assertSee('Voted');
     }
 }
