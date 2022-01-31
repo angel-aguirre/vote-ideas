@@ -14,11 +14,13 @@ class IdeasIndex extends Component
 
     public $status = 'All';
     public $category;
+    public $filter;
 
 
     protected $queryString = [
         'status',
         'category',
+        'filter',
     ];
 
     protected $listeners = ['queryStringUpdatedStatus'];
@@ -43,6 +45,12 @@ class IdeasIndex extends Component
                     ->where('user_id', auth()->id())
                     ->whereColumn('idea_id', 'ideas.id')
                 ])
+                ->when($this->filter && $this->filter == 'Top Voted', function($query) {
+                    return $query->orderByDesc('votes_count');
+                })
+                ->when($this->filter && $this->filter == 'My Ideas', function($query) {
+                    return $query->where('user_id', auth()->id());
+                })
                 ->withCount('votes')
                 ->orderBy('id', 'desc')
                 ->simplePaginate(Idea::PAGINATION_COUNT),
@@ -53,8 +61,16 @@ class IdeasIndex extends Component
     /**
      * Custom Methods
      */
-    public function udatingCategory() {
+    public function updatingCategory() {
         $this->resetPage();
+    }
+
+    public function updatedFilter() {
+        if ($this->filter == 'My Ideas') {
+            if ( !auth()->check() ) {
+                return redirect()->route('login');
+            }
+        }
     }
 
     /**
