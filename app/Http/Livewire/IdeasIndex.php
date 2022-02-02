@@ -15,12 +15,13 @@ class IdeasIndex extends Component
     public $status = 'All';
     public $category;
     public $filter;
-
+    public $search;
 
     protected $queryString = [
         'status',
         'category',
         'filter',
+        'search',
     ];
 
     protected $listeners = ['queryStringUpdatedStatus'];
@@ -50,6 +51,9 @@ class IdeasIndex extends Component
                 })
                 ->when($this->filter && $this->filter == 'My Ideas', function($query) {
                     return $query->where('user_id', auth()->id());
+                })
+                ->when(strlen($this->search) > 3, function($query) {
+                    return $query->where('title', 'like', "%{$this->search}%");
                 })
                 ->withCount('votes')
                 ->orderBy('id', 'desc')
