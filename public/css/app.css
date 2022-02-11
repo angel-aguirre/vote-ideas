@@ -1246,6 +1246,15 @@ select {
 .mt-12 {
 	margin-top: 3rem;
 }
+.mb-5 {
+	margin-bottom: 1.25rem;
+}
+.mb-0 {
+	margin-bottom: 0px;
+}
+.ml-auto {
+	margin-left: auto;
+}
 .block {
 	display: block;
 }
@@ -1820,6 +1829,9 @@ select {
 }
 .pl-8 {
 	padding-left: 2rem;
+}
+.pt-0 {
+	padding-top: 0px;
 }
 .text-left {
 	text-align: left;
