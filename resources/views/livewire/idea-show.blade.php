@@ -6,7 +6,7 @@
                     <img src="{{ $idea->user->avatar }}" alt="" class="w-14 h-14 rounded-xl">
                 </a>
             </div>
-            <div class="mx-2 mx-4">
+            <div class="mx-2 mx-4 w-full">
                 <h4 class="text-xl font-semibold mt-2 md:mt-0">
                     {{ $idea->title }}
                 </h4>
@@ -27,19 +27,22 @@
                     <div class="flex items-center space-x-2 mt-4 md:mt-0"
                         x-data="{ isOpen: false}">
                         <div class="{{ $idea->status->classes }} text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">{{ $idea->status->name }}</div>
-                        <button class="relative bg-gray-100 hover:bg-gray-200 border transition duration-150 ease-in rounded-full h-7 py-2 px-3"
-                            x-on:click="isOpen = !isOpen">
-                            <svg fill="currentColor" width="24" height="6"><path d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z" style="color: rgba(163, 163, 163, .5)"></svg>
+                        <div class="relative">
+                            <button class="relative bg-gray-100 hover:bg-gray-200 border transition duration-150 ease-in rounded-full h-7 py-2 px-3"
+                                x-on:click="isOpen = !isOpen">
+                                <svg fill="currentColor" width="24" height="6"><path d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z" style="color: rgba(163, 163, 163, .5)"></svg>
+                            </button>
                             <ul class="absolute w-44 font-semibold bg-white shadow-dialog rounded-xl text-left md:ml-8 top-8 md:top-6 right-0 md:left-0 z-10"
                                 x-cloak
                                 x-show="isOpen"
                                 x-transition.top.left
                                 x-on:click.away="isOpen = false"
                                 x-on:keydown.escape.window="isOpen = false">
-                                <li><a href="#" class="hover:bg-gray-100 hover:rounded-t-xl px-5 py-3 transition duration-150 ease-in block">Mark as spam</a></li>
-                                <li><a href="#" class="hover:bg-gray-100 hover:rounded-b-xl px-5 py-3 transition duration-150 ease-in block">Delete Post</a></li>
+                                <li><a href="#" class="hover:bg-gray-100 hover:rounded-t-xl px-5 py-3 transition duration-150 ease-in block">Edit Idea</a></li>
+                                <li><a href="#" class="hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block">Delete Idea</a></li>
+                                <li><a href="#" class="hover:bg-gray-100 hover:rounded-b-xl px-5 py-3 transition duration-150 ease-in block">Mark as spam</a></li>
                             </ul>
-                        </button>
+                        </div>
                     </div>
                     <div class="flex items-center md:hidden mt-4 md:mt-0">
                         <div class="bg-gray-100 text-center rounded-xl h-10 px-4 py-2 pr-8">
