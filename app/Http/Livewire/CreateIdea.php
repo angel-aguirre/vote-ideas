@@ -32,24 +32,26 @@ class CreateIdea extends Component
      * Create a new idea and reload the index page
      */
     public function createIdea() {
-        if(auth()->check()) {
-            $this->validate();
-
-            Idea::create([
-                'user_id' => auth()->id(),
-                'category_id' => $this->category,
-                'status_id' => $this->idea_status_on_create,
-                'title' => $this->title,
-                'description' => $this->description,
-            ]);
-
-            session()->flash('success_message', 'Idea created successfully!');
-
-            $this->reset();
-
-            return redirect()->route('idea.index');
+        if (auth()->guest()) {
+            abort(Response::HTTP_FORBIDDEN);
         }
 
-        abort(Response::HTTP_FORBIDDEN);
+        $this->validate();
+
+        $idea = Idea::create([
+            'user_id' => auth()->id(),
+            'category_id' => $this->category,
+            'status_id' => $this->idea_status_on_create,
+            'title' => $this->title,
+            'description' => $this->description,
+        ]);
+
+        $idea->vote(auth()->user());
+
+        session()->flash('success_message', 'Idea created successfully!');
+
+        $this->reset();
+
+        return redirect()->route('idea.index');
     }
 }

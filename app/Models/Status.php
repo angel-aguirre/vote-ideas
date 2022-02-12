@@ -18,21 +18,6 @@ class Status extends Model
     }
 
     /**
-     *  Model accessors
-     */
-    public function getGetClassAttribute() {
-        $allStatuses = [
-            'Open' => 'bg-gray-200',
-            'Considering' => 'bg-purple text-white',
-            'In Progress' => 'bg-yellow text-white',
-            'Implemented' => 'bg-green text-white',
-            'Closed' => 'bg-red text-white',
-        ];
-
-        return $allStatuses[$this->name];
-    }
-
-    /**
      *  Custom methods
      */
     public static function getCount() {

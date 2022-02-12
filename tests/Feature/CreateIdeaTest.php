@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -19,7 +18,7 @@ class CreateIdeaTest extends TestCase
         $response = $this->get(route('idea.index'));
 
         $response->assertSee('Please login to create an idea.');
-        $response->assertDontSee('Let us know what you would like and we\'ll take a look over!');
+        $response->assertDontSee('Let us know what you would like and we\'ll take a look over!', false);
     }
 
     public function test_create_idea_form_does_show_when_logged_in() {
@@ -74,10 +73,11 @@ class CreateIdeaTest extends TestCase
 
         $this->assertDatabaseHas('ideas', [
             'title' => 'My first idea',
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'description' => 'This is my first idea',
-            'user_id' => $user->id,
+        ]);
+
+        $this->assertDatabaseHas('votes', [
+            'idea_id' => 1,
+            'user_id' => 1,
         ]);
     }
 

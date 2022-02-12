@@ -2,9 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Models\Category;
 use App\Models\Idea;
-use App\Models\Status;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -18,17 +16,7 @@ class IdeaTest extends TestCase
         $userOne = User::factory()->create();
         $userTwo = User::factory()->create();
 
-        $category = Category::factory()->create(['name' => 'Category 1']);
-
-        $status = Status::factory()->create(['name' => 'Open']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $userOne->id,
-            'category_id' => $category->id,
-            'status_id' => $status->id,
-            'title' => 'Idea 1',
-            'description' => 'Description Idea 1',
-        ]);
+        $idea = Idea::factory()->create();
 
         Vote::factory()->create([
             'user_id' => $userOne->id,
@@ -43,17 +31,7 @@ class IdeaTest extends TestCase
     public function test_user_can_vote_for_idea() {
         $userOne = User::factory()->create();
 
-        $category = Category::factory()->create(['name' => 'Category 1']);
-
-        $status = Status::factory()->create(['name' => 'Open']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $userOne->id,
-            'category_id' => $category->id,
-            'status_id' => $status->id,
-            'title' => 'Idea 1',
-            'description' => 'Description Idea 1',
-        ]);
+        $idea = Idea::factory()->create();
 
         $this->assertFalse($idea->isVotedByUser($userOne));
         $idea->vote($userOne);
@@ -63,17 +41,7 @@ class IdeaTest extends TestCase
     public function test_user_can_remove_vote_for_idea() {
         $userOne = User::factory()->create();
 
-        $category = Category::factory()->create(['name' => 'Category 1']);
-
-        $status = Status::factory()->create(['name' => 'Open']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $userOne->id,
-            'category_id' => $category->id,
-            'status_id' => $status->id,
-            'title' => 'Idea 1',
-            'description' => 'Description Idea 1',
-        ]);
+        $idea = Idea::factory()->create();
 
         Vote::create([
             'user_id' => $userOne->id,

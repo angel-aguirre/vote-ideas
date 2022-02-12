@@ -18,17 +18,27 @@ class IdeaFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => function() {
-                return User::query()->inRandomOrder()->first()->id;
-            },
-            'category_id' => function() {
-                return Category::query()->inRandomOrder()->first()->id;
-            },
-            'status_id' => function() {
-                return Status::query()->inRandomOrder()->first()->id;
-            },
+            'user_id' => User::factory(),
+            'category_id' => Category::factory(),
+            'status_id' => Status::factory(),
             'title' => Str::ucfirst($this->faker->words(4, true)),
             'description' => $this->faker->paragraph(5),
         ];
+    }
+
+    public function existing() {
+        return $this->state(function (array $attributes) {
+            return [
+                'user_id' => function() {
+                    return User::query()->inRandomOrder()->first()->id;
+                },
+                'category_id' => function() {
+                    return Category::query()->inRandomOrder()->first()->id;
+                },
+                'status_id' => function() {
+                    return Status::query()->inRandomOrder()->first()->id;
+                },
+            ];
+        });
     }
 }
