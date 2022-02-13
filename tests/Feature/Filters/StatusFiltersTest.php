@@ -14,27 +14,21 @@ class StatusFiltersTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function index_page_contains_status_filters_livewire_component()
-    {
+    public function test_index_page_contains_status_filters_livewire_component() {
         Idea::factory()->create();
 
         $this->get(route('idea.index'))
             ->assertSeeLivewire('status-filters');
     }
 
-    /** @test */
-    public function show_page_contains_status_filters_livewire_component()
-    {
+    public function test_show_page_contains_status_filters_livewire_component() {
         $idea = Idea::factory()->create();
 
         $this->get(route('idea.show', $idea))
             ->assertSeeLivewire('status-filters');
     }
 
-    /** @test */
-    public function shows_correct_status_count()
-    {
+    public function test_shows_correct_status_count() {
         $statusImplemented = Status::factory()->create(['id' => 4, 'name' => 'Implemented']);
 
         Idea::factory()->create([
@@ -50,9 +44,7 @@ class StatusFiltersTest extends TestCase
             ->assertSee('Implemented (2)');
     }
 
-    /** @test */
-    public function filtering_works_when_query_string_in_place()
-    {
+    public function test_filtering_works_when_query_string_in_place() {
         $statusOpen = Status::factory()->create(['name' => 'Open']);
         $statusConsidering = Status::factory()->create(['name' => 'Considering', 'classes' => 'bg-purple text-white']);
         $statusInProgress = Status::factory()->create(['name' => 'In Progress', 'classes' => 'bg-yellow text-white']);
@@ -87,9 +79,7 @@ class StatusFiltersTest extends TestCase
             });
     }
 
-    /** @test */
-    public function show_page_does_not_show_selected_status()
-    {
+    public function test_show_page_does_not_show_selected_status() {
         $statusImplemented = Status::factory()->create(['id' => 4, 'name' => 'Implemented']);
 
         $idea = Idea::factory()->create([
@@ -101,9 +91,7 @@ class StatusFiltersTest extends TestCase
         $response->assertDontSee('border-blue text-gray-900');
     }
 
-    /** @test */
-    public function index_page_shows_selected_status()
-    {
+    public function test_index_page_shows_selected_status() {
         $statusImplemented = Status::factory()->create(['id' => 4, 'name' => 'Implemented']);
 
         $idea = Idea::factory()->create([

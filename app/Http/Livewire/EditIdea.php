@@ -38,12 +38,10 @@ class EditIdea extends Component
      * Custom methods
      */
     public function updateIdea() {
-        // Auth
         if (auth()->guest() || auth()->user()->cannot('update', $this->idea)) {
             abort(Response::HTTP_FORBIDDEN);
         }
         
-        // Validation
         $this->validate();
 
         $this->idea->update([

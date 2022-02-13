@@ -48,7 +48,7 @@
                                     </li>
                                 @endcan
                                 <li><a href="#" 
-                                    class="{{ !Auth::user()->can('update', $idea) ? 'hover:rounded-t-xl' : '' }} hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block">Delete Idea</a>
+                                    class="@cannot('update', $idea) hover:rounded-t-xl @endcannot hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block">Delete Idea</a>
                                 </li>
                                 <li><a href="#" class="hover:bg-gray-100 hover:rounded-b-xl px-5 py-3 transition duration-150 ease-in block">Mark as spam</a></li>
                             </ul>
