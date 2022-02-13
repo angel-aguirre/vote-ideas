@@ -38,7 +38,12 @@
                                 x-transition.top.left
                                 x-on:click.away="isOpen = false"
                                 x-on:keydown.escape.window="isOpen = false">
-                                <li><a href="#" class="hover:bg-gray-100 hover:rounded-t-xl px-5 py-3 transition duration-150 ease-in block">Edit Idea</a></li>
+                                <li><a href="#" 
+                                        @click.prevent="
+                                            $dispatch('custom-show-edit-modal');
+                                            isOpen = false;
+                                        " 
+                                        class="hover:bg-gray-100 hover:rounded-t-xl px-5 py-3 transition duration-150 ease-in block">Edit Idea</a></li>
                                 <li><a href="#" class="hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block">Delete Idea</a></li>
                                 <li><a href="#" class="hover:bg-gray-100 hover:rounded-b-xl px-5 py-3 transition duration-150 ease-in block">Mark as spam</a></li>
                             </ul>
