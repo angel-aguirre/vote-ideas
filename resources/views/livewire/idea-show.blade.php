@@ -38,13 +38,18 @@
                                 x-transition.top.left
                                 x-on:click.away="isOpen = false"
                                 x-on:keydown.escape.window="isOpen = false">
-                                <li><a href="#" 
+                                @can('update', $idea)
+                                    <li><a href="#" 
                                         @click.prevent="
-                                            $dispatch('custom-show-edit-modal');
-                                            isOpen = false;
+                                        $dispatch('custom-show-edit-modal');
+                                        isOpen = false;
                                         " 
-                                        class="hover:bg-gray-100 hover:rounded-t-xl px-5 py-3 transition duration-150 ease-in block">Edit Idea</a></li>
-                                <li><a href="#" class="hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block">Delete Idea</a></li>
+                                        class="hover:bg-gray-100 hover:rounded-t-xl px-5 py-3 transition duration-150 ease-in block">Edit Idea</a>
+                                    </li>
+                                @endcan
+                                <li><a href="#" 
+                                    class="{{ !Auth::user()->can('update', $idea) ? 'hover:rounded-t-xl' : '' }} hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block">Delete Idea</a>
+                                </li>
                                 <li><a href="#" class="hover:bg-gray-100 hover:rounded-b-xl px-5 py-3 transition duration-150 ease-in block">Mark as spam</a></li>
                             </ul>
                         </div>
