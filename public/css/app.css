@@ -1240,6 +1240,9 @@ select {
 .-mt-px {
 	margin-top: -1px;
 }
+.mb-2 {
+	margin-bottom: 0.5rem;
+}
 .mt-16 {
 	margin-top: 4rem;
 }
@@ -1272,9 +1275,6 @@ select {
 }
 .grid {
 	display: grid;
-}
-.contents {
-	display: contents;
 }
 .hidden {
 	display: none;
