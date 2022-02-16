@@ -15,9 +15,7 @@ class OtherFiltersTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function top_voted_filter_works()
-    {
+    public function test_top_voted_filter_works() {
         $user = User::factory()->create();
         $userB = User::factory()->create();
         $userC = User::factory()->create();
@@ -49,9 +47,7 @@ class OtherFiltersTest extends TestCase
             });
     }
 
-    /** @test */
-    public function my_ideas_filter_works_correctly_when_user_logged_in()
-    {
+    public function test_my_ideas_filter_works_correctly_when_user_logged_in() {
         $user = User::factory()->create();
         $userB = User::factory()->create();
 
@@ -80,9 +76,7 @@ class OtherFiltersTest extends TestCase
             });
     }
 
-    /** @test */
-    public function my_ideas_filter_works_correctly_when_user_is_not_logged_in()
-    {
+    public function test_my_ideas_filter_works_correctly_when_user_is_not_logged_in() {
         $user = User::factory()->create();
         $userB = User::factory()->create();
 
@@ -103,9 +97,7 @@ class OtherFiltersTest extends TestCase
             ->assertRedirect(route('login'));
     }
 
-    /** @test */
-    public function my_ideas_filter_works_correctly_with_categories_filter()
-    {
+    public function test_my_ideas_filter_works_correctly_with_categories_filter() {
         $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
@@ -140,9 +132,7 @@ class OtherFiltersTest extends TestCase
             });
     }
 
-    /** @test */
-    public function no_filters_works_correctly()
-    {
+    public function test_no_filters_works_correctly() {
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
 
         $ideaOne = Idea::factory()->create([
@@ -166,6 +156,37 @@ class OtherFiltersTest extends TestCase
                 return $ideas->count() === 3
                     && $ideas->first()->title === 'My Third Idea'
                     && $ideas->get(1)->title === 'My Second Idea';
+            });
+    }
+
+    public function test_spam_ideas_filter_works() {
+        $user = User::factory()->admin()->create();
+
+        $ideaOne = Idea::factory()->create([
+            'title' => 'Idea One',
+            'spam_reports' => 1
+        ]);
+
+        $ideaTwo = Idea::factory()->create([
+            'title' => 'Idea Two',
+            'spam_reports' => 2
+        ]);
+
+        $ideaThree = Idea::factory()->create([
+            'title' => 'Idea Three',
+            'spam_reports' => 3
+        ]);
+
+        $ideaFour = Idea::factory()->create();
+
+        Livewire::actingAs($user)
+            ->test(IdeasIndex::class)
+            ->set('filter', 'Spam Ideas')
+            ->assertViewHas('ideas', function ($ideas) {
+                return $ideas->count() === 3
+                    && $ideas->first()->title === 'Idea Three'
+                    && $ideas->get(1)->title === 'Idea Two'
+                    && $ideas->get(2)->title === 'Idea One';
             });
     }
 }

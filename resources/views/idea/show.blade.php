@@ -22,11 +22,15 @@
             :idea="$idea" />
     @endcan
 
-    <livewire:mark-idea-as-spam
+    @auth
+        <livewire:mark-idea-as-spam
             :idea="$idea" />
+    @endauth
     
-    <livewire:mark-idea-as-not-spam
+    @admin
+        <livewire:mark-idea-as-not-spam
             :idea="$idea" />
+    @endadmin
 
     <div class="comments-container relative space-y-6 md:ml-22 pt-4 my-8 mt-1">
         <div class="comment-container relative bg-white rounded-xl flex mt-4">
