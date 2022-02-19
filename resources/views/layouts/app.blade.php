@@ -88,6 +88,10 @@
             </div><!-- segunda-columna -->
         </main>
 
+        @if (session('success_message')) 
+            <x-notification-success :message="session('success_message')" :showOnPageLoad="true"/>
+        @endif
+
         @livewireScripts
     </body>
 </html>

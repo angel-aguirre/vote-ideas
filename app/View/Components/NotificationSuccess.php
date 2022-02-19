@@ -6,14 +6,18 @@ use Illuminate\View\Component;
 
 class NotificationSuccess extends Component
 {
+    public $message;
+    public $showOnPageLoad;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($message = '', $showOnPageLoad = false)
     {
-        //
+        $this->message = $message;
+        $this->showOnPageLoad = $showOnPageLoad;
     }
 
     /**
