@@ -59,6 +59,7 @@ class IdeasIndex extends Component
                     return $query->where('title', 'like', "%{$this->search}%");
                 })
                 ->withCount('votes')
+                ->withCount('comments')
                 ->orderBy('id', 'desc')
                 ->simplePaginate(Idea::PAGINATION_COUNT),
             'categories' => Category::all(),

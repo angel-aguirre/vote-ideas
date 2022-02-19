@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Idea;
 use App\Models\Status;
 use App\Models\User;
@@ -33,6 +34,8 @@ class DatabaseSeeder extends Seeder
         Status::factory()->create(['name' => 'Closed', 'classes' => 'bg-red text-white']);
 
         Idea::factory(30)->existing()->create();
+
+        Comment::factory(500)->existing()->create();
 
         $votes = Vote::factory(100)->make();
 
