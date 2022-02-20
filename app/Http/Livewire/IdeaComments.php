@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Comment;
 use App\Models\Idea;
 use Livewire\Component;
 
 class IdeaComments extends Component
 {
     public $idea;
+    public $comments;
 
     public $listeners = ['commentWasAdded'];
 
@@ -17,15 +19,19 @@ class IdeaComments extends Component
 
     public function render()
     {
+        $this->comments = $this->idea->comments;
         return view('livewire.idea-comments', [
-            'comments' => $this->idea->comments,
+            'comments' => $this->comments,
         ]);
     }
 
     /**
      * Listeners
      */
-    public function commentWasAdded() {
-        $this->idea->refresh();
+    public function commentWasAdded($commentID) {
+        // $this->idea->refresh();
+
+        $this->comments->push(Comment::find($commentID));
+        $this->dispatchBrowserEvent('comment-was-added', $this->comments->last());
     }
 }

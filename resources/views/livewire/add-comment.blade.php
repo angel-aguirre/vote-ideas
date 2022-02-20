@@ -1,6 +1,9 @@
 <div class="relative" x-data="{ isOpen: false }">
     <button type="button" class="h-11 w-32 text-sm bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3"
-        x-on:click="isOpen = !isOpen">
+        x-on:click="
+            isOpen = !isOpen;
+            if(isOpen) $nextTick(() => $refs.comment.focus());
+        ">
         Reply
     </button>
     <div class="absolute z-10 w-64 md:w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-2"
@@ -13,12 +16,21 @@
         "
         x-transition.top
         x-on:click.away="isOpen = false"
-        x-on:keydown.escape.window="isOpen = false">
+        x-on:keydown.escape.window="isOpen = false"
+        x-on:comment-was-added.window="
+            comments = document.querySelectorAll('.comment-container');
+            lastComment = comments[comments.length - 1];
+            lastComment.scrollIntoView({ behavior: 'smooth' });
+            lastComment.classList.add('bg-green-50');
+            setTimeout(() => lastComment.classList.remove('bg-green-50'), 5000);
+        "
+        >
         @auth
             <form wire:submit.prevent="addComment" action="#" class="space-y-4 px-4 py-6">
                 <div>
                     <textarea
                         wire:model="comment"
+                        x-ref="comment"
                         name="post_comment" id="post_comment" cols="30" rows="4"
                         class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-900 border-none px-4 py-2"
                         placeholder="Go ahead, don't be shy. Share your thoughts..."></textarea>

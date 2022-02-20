@@ -35,7 +35,7 @@ class AddComment extends Component
 
         $this->validate();
 
-        Comment::create([
+        $comment = Comment::create([
             'user_id' => auth()->user()->id,
             'idea_id' => $this->idea->id,
             'body' => $this->comment,
@@ -43,7 +43,8 @@ class AddComment extends Component
 
         $this->reset('comment');
 
-        $this->emit('commentWasAdded');
+        // get the comment inserted id
+        $this->emit('commentWasAdded', $comment->id);
         $this->emit('openSuccessNotification', 'Comment was posted!');
     }
 }
