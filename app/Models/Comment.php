@@ -11,6 +11,8 @@ class Comment extends Model
 
     public $guarded = [];
 
+    protected $perPage = 10;
+
     /**
      * DB relations
      */

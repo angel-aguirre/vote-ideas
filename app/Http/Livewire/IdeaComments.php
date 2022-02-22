@@ -5,11 +5,14 @@ namespace App\Http\Livewire;
 use App\Models\Comment;
 use App\Models\Idea;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class IdeaComments extends Component
 {
+    use WithPagination;
+
     public $idea;
-    public $comments;
+    // public $comments;
 
     public $listeners = ['commentWasAdded'];
 
@@ -19,9 +22,9 @@ class IdeaComments extends Component
 
     public function render()
     {
-        $this->comments = $this->idea->comments;
+        // $this->comments = $this->idea->comments;
         return view('livewire.idea-comments', [
-            'comments' => $this->comments,
+            'comments' => $this->idea->comments()->with(['user'])->paginate()->withQueryString(),
         ]);
     }
 
@@ -29,9 +32,10 @@ class IdeaComments extends Component
      * Listeners
      */
     public function commentWasAdded($commentID) {
-        // $this->idea->refresh();
+        $this->idea->refresh();
 
-        $this->comments->push(Comment::find($commentID));
-        $this->dispatchBrowserEvent('comment-was-added', $this->comments->last());
+        // $this->comments->push(Comment::find($commentID));
+        $this->gotoPage($this->idea->comments()->paginate()->lastPage());
+        $this->dispatchBrowserEvent('comment-was-added');
     }
 }

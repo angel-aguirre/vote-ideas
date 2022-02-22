@@ -76,25 +76,19 @@ class ShowIdeasTest extends TestCase
     }
 
     public function test_ideas_pagination_works() {
-        Idea::factory(Idea::PAGINATION_COUNT + 1)->create();
+        $ideaOne = Idea::factory()->create();
 
-        $ideaOne = Idea::find(1);
-        $ideaOne->title = 'My first idea';
-        $ideaOne->save();
-
-        $ideaOnSecondPage = Idea::find(6);
-        $ideaOnSecondPage->title = 'My six idea';
-        $ideaOnSecondPage->save();
+        Idea::factory($ideaOne->getPerPage())->create();
 
         $response = $this->get('/');
 
+        $response->assertSee(Idea::find(Idea::count())->title);
         $response->assertDontSee($ideaOne->title);
-        $response->assertSee($ideaOnSecondPage->title);
 
         $response = $this->get('/?page=2');
 
+        $response->assertDontSee(Idea::find(Idea::count())->title);
         $response->assertSee($ideaOne->title);
-        $response->assertDontSee($ideaOnSecondPage->title);
     }
 
     public function test_same_idea_title_different_slugs() {

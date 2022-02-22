@@ -12,9 +12,8 @@ class Idea extends Model
 {
     use HasFactory, Sluggable;
 
-    const PAGINATION_COUNT = 5;
-
     protected $guarded = [];
+    protected $perPage = 5;
 
     public function sluggable(): array
     {
