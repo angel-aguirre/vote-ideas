@@ -31,7 +31,7 @@ class IdeaComments extends Component
     /**
      * Listeners
      */
-    public function commentWasAdded($commentID) {
+    public function commentWasAdded() {
         $this->idea->refresh();
 
         // $this->comments->push(Comment::find($commentID));

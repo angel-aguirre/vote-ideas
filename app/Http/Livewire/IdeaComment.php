@@ -10,6 +10,8 @@ class IdeaComment extends Component
     public $comment;
     public $ideaUserId;
 
+    protected $listeners = ['commentWasUpdated'];
+
     public function mount(Comment $comment, $ideaUserId) {
         $this->comment = $comment;
         $this->ideaUserId = $ideaUserId;
@@ -18,5 +20,12 @@ class IdeaComment extends Component
     public function render()
     {
         return view('livewire.idea-comment');
+    }
+
+    /**
+     * Listeners
+     */
+    public function commentWasUpdated() {
+        $this->comment->refresh();
     }
 }
