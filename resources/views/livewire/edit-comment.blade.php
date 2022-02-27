@@ -42,7 +42,7 @@
                             x-ref="body"
                             name="idea" id="idea" cols="30" rows="4"
                             class="w-full text-sm bg-gray-100 rounded-xl border-none placeholder-gray-900 px-4 py-2"
-                            placeholder="Describe your idea"></textarea>
+                            placeholder="Type yout comment here""></textarea>
                         @error('body')
                             <p class="text-red text-xs mt-1">{{ $message }}</p>
                         @enderror

@@ -7,6 +7,11 @@
         </div>
         <div class="md:mx-4 w-full">
             <div class="text-gray-600">
+                @admin
+                    @if ($comment->spam_reports > 0)
+                        <div class="text-red mb-2">Spam Reports: {{ $comment->spam_reports }}</div>
+                    @endif
+                @endadmin
                 {{ $comment->body }}
             </div>
 
@@ -55,8 +60,29 @@
                                         >Delete Comment</a>
                                     </li>
                                 @endcan
+                                @admin
+                                    @if ($comment->spam_reports > 0)
+                                        <li>
+                                            <a
+                                                href="#"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                    Livewire.emit('setMarkAsNotSpamComment', {{ $comment->id }})
+                                                "
+                                                class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
+                                            >
+                                                Not Spam
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endadmin
                                 <li>
-                                    <a href="#" class="
+                                    <a href="#" 
+                                        @click.prevent="
+                                        isOpen = false;
+                                        Livewire.emit('setMarkAsSpamComment', {{ $comment->id }})
+                                        "
+                                        class="
                                         @cannot('delete', $comment) hover:rounded-t-xl @endcannot 
                                         hover:rounded-b-xl hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block"
                                     >
