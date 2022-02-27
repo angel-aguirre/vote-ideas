@@ -14,7 +14,10 @@ class IdeaComments extends Component
     public $idea;
     // public $comments;
 
-    public $listeners = ['commentWasAdded'];
+    public $listeners = [
+        'commentWasAdded',
+        'commentWasDeleted',
+    ];
 
     public function mount(Idea $idea) {
         $this->idea = $idea;
@@ -34,8 +37,12 @@ class IdeaComments extends Component
     public function commentWasAdded() {
         $this->idea->refresh();
 
-        // $this->comments->push(Comment::find($commentID));
         $this->gotoPage($this->idea->comments()->paginate()->lastPage());
         $this->dispatchBrowserEvent('comment-was-added');
+    }
+
+    public function commentWasDeleted() {
+        $this->idea->refresh();
+        $this->gotoPage(1);
     }
 }

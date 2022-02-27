@@ -43,13 +43,24 @@
                                         class="hover:bg-gray-100 hover:rounded-t-xl px-5 py-3 transition duration-150 ease-in block">Edit Comment</a>
                                     </li>
                                 @endcan
+                                @can('delete', $comment)
+                                    <li><a href="#" 
+                                        @click.prevent="
+                                        isOpen = false;
+                                        Livewire.emit('setDeleteComment', {{ $comment->id }})
+                                        " 
+                                        class="
+                                            @cannot('update', $comment) hover:rounder-t-xl @endcannot
+                                            hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block"
+                                        >Delete Comment</a>
+                                    </li>
+                                @endcan
                                 <li>
-                                    <a href="#" class="@cannot('update', $comment) hover:rounded-t-xl @endcannot hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block">
+                                    <a href="#" class="
+                                        @cannot('delete', $comment) hover:rounded-t-xl @endcannot 
+                                        hover:rounded-b-xl hover:bg-gray-100 px-5 py-3 transition duration-150 ease-in block"
+                                    >
                                         Mark as spam</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="hover:bg-gray-100 hover:rounded-b-xl px-5 py-3 transition duration-150 ease-in block">
-                                        Delete Post</a>
                                 </li>
                             </ul>
                         </div>
