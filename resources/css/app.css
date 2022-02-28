@@ -22,7 +22,7 @@
     left: -40px;
     content: '';
     width: 3px;
-    height: 100%;
+    height: 5.8rem;
     background-color: #edf0f6;
 }
 
@@ -37,15 +37,26 @@
     left: -40px;
 }
 
-.comment-container:last-child::after {
+.comment-container:not(:last-child)::after {
     position: absolute;
     display: block;
     top: 60px;
     content: '';
     width: 3px;
-    height: calc(100% - 60px);
+    height: 113%;
+    background-color: #edf0f6;
+    left: -40px;
+}
+
+.comment-container:last-child::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 3px;
+    height: 30%;
+    top: 3.8rem;
     background-color: theme('colors.gray-background');
-    left: -38px;
+    left: -40px;
 }
 
 .is-status-update::before {
