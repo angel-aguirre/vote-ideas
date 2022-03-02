@@ -1132,14 +1132,14 @@ select {
 .bottom-0 {
 	bottom: 0px;
 }
-.-right-28 {
-	right: -7rem;
-}
 .-top-1 {
 	top: -0.25rem;
 }
 .-right-1 {
 	right: -0.25rem;
+}
+.-right-28 {
+	right: -7rem;
 }
 .z-0 {
 	z-index: 0;
