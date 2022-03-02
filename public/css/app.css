@@ -1408,6 +1408,9 @@ select {
 .w-76 {
 	width: 19rem;
 }
+.w-40 {
+	width: 10rem;
+}
 .min-w-0 {
 	min-width: 0px;
 }
@@ -1476,6 +1479,22 @@ select {
 }
 .transform {
 	transform: var(--tw-transform);
+}
+@-webkit-keyframes pulse {
+
+	50% {
+		opacity: .5;
+	}
+}
+@keyframes pulse {
+
+	50% {
+		opacity: .5;
+	}
+}
+.animate-pulse {
+	-webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .cursor-default {
 	cursor: default;
