@@ -92,7 +92,19 @@
         </main>
 
         @if (session('success_message')) 
-            <x-notification-success :message="session('success_message')" :showOnPageLoad="true"/>
+            <x-popup-alert 
+                type="success"
+                :message="session('success_message')" 
+                :showOnPageLoad="true"
+            />
+        @endif
+
+        @if (session('error_message')) 
+            <x-popup-alert 
+                type="error"
+                :message="session('error_message')" 
+                :showOnPageLoad="true"
+            />
         @endif
 
         @livewireScripts

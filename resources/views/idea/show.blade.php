@@ -14,7 +14,7 @@
 
     <livewire:idea-comments :idea="$idea" />
 
-    <x-notification-success />
+    <x-popup-alert />
     
     <x-modals-container :idea="$idea" />
 

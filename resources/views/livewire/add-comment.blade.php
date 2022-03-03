@@ -13,6 +13,18 @@
             Livewire.on('commentWasAdded', function() {
                 isOpen = false;
             });
+
+            @if (session('scrollToComment'))
+                $nextTick(() => {
+                    console.log('{{ session('scrollToComment') }}');
+                    const commentToScrollTo = document.querySelector('#comment-{{ session('scrollToComment') }}')
+                    commentToScrollTo.scrollIntoView({ behavior: 'smooth'})
+                    commentToScrollTo.classList.add('bg-green-50')
+                    setTimeout(() => {
+                        commentToScrollTo.classList.remove('bg-green-50')
+                    }, 5000)
+                });
+            @endif
         "
         x-transition.top
         x-on:click.away="isOpen = false"

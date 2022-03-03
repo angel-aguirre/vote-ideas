@@ -4,20 +4,22 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class NotificationSuccess extends Component
+class PopupAlert extends Component
 {
     public $message;
     public $showOnPageLoad;
+    public $type;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($message = '', $showOnPageLoad = false)
+    public function __construct($message = '', $showOnPageLoad = false, $type = 'success')
     {
         $this->message = $message;
         $this->showOnPageLoad = $showOnPageLoad;
+        $this->type = $type;
     }
 
     /**
@@ -27,6 +29,6 @@ class NotificationSuccess extends Component
      */
     public function render()
     {
-        return view('components.notification-success');
+        return view('components.popup-alert');
     }
 }

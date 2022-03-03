@@ -28,9 +28,10 @@
                 <li>
                     <a 
                         href="{{ route('idea.show', $notification->data['idea_slug']) }}"
-                        {{-- @click.prevent="
+                        wire:click="markAsRead('{{ $notification->id }}')"
+                        @click.prevent="
                         isOpen = false;
-                        " --}}
+                        "
                         x-on:click.away="isOpen = false"
                         x-on:keydown.escape.window="isOpen = false"
                         class="flex hover:bg-gray-100 transition duration-150 ease-in px-5 py-3"
@@ -49,6 +50,8 @@
             @endforeach
             <li class="border-t border-grat-300 text-center">
                 <button
+                    wire:click="markAllAsRead"
+                    @click.prevent="isOpen = false"
                     class="w-full font-semibold hover:bg-gray-100 transition duration-150 ease-in px-5 py-4"
                 >
                     Mark as all read

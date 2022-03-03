@@ -1126,12 +1126,6 @@ select {
 .top-0 {
 	top: 0px;
 }
-.top-8 {
-	top: 2rem;
-}
-.bottom-0 {
-	bottom: 0px;
-}
 .-top-1 {
 	top: -0.25rem;
 }
@@ -1140,6 +1134,12 @@ select {
 }
 .-right-28 {
 	right: -7rem;
+}
+.top-8 {
+	top: 2rem;
+}
+.bottom-0 {
+	bottom: 0px;
 }
 .z-0 {
 	z-index: 0;
@@ -1390,6 +1390,12 @@ select {
 .w-1\/2 {
 	width: 50%;
 }
+.w-76 {
+	width: 19rem;
+}
+.w-40 {
+	width: 10rem;
+}
 .w-14 {
 	width: 3.5rem;
 }
@@ -1404,12 +1410,6 @@ select {
 }
 .w-70 {
 	width: 17.5rem;
-}
-.w-76 {
-	width: 19rem;
-}
-.w-40 {
-	width: 10rem;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -1575,6 +1575,11 @@ select {
 	margin-right: calc(0.75rem * var(--tw-space-x-reverse));
 	margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-y-reverse: 0;
+	margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -1584,11 +1589,6 @@ select {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(1rem * var(--tw-space-x-reverse));
 	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-y-2 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-y-reverse: 0;
-	margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 .space-x-10 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
@@ -1753,13 +1753,13 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(240, 253, 244, var(--tw-bg-opacity));
 }
-.bg-gray-background {
-	--tw-bg-opacity: 1;
-	background-color: rgba(247, 248, 252, var(--tw-bg-opacity));
-}
 .bg-red {
 	--tw-bg-opacity: 1;
 	background-color: rgba(236, 69, 79, var(--tw-bg-opacity));
+}
+.bg-gray-background {
+	--tw-bg-opacity: 1;
+	background-color: rgba(247, 248, 252, var(--tw-bg-opacity));
 }
 .bg-yellow {
 	--tw-bg-opacity: 1;
@@ -2741,16 +2741,16 @@ select {
 		position: sticky;
 	}
 
+	.md\:-right-12 {
+		right: -3rem;
+	}
+
 	.md\:top-6 {
 		top: 1.5rem;
 	}
 
 	.md\:left-0 {
 		left: 0px;
-	}
-
-	.md\:-right-12 {
-		right: -3rem;
 	}
 
 	.md\:top-8 {
@@ -2823,12 +2823,12 @@ select {
 		width: 8rem;
 	}
 
-	.md\:w-76 {
-		width: 19rem;
-	}
-
 	.md\:w-96 {
 		width: 24rem;
+	}
+
+	.md\:w-76 {
+		width: 19rem;
 	}
 
 	.md\:w-175 {
