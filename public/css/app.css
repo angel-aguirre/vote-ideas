@@ -2110,6 +2110,9 @@ select {
 .opacity-50 {
 	opacity: 0.5;
 }
+.mix-blend-luminosity {
+	mix-blend-mode: luminosity;
+}
 .shadow-sm {
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -2272,7 +2275,6 @@ select {
 .is-status-update {
     border-width: 1px;
     border-image-source: linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
-    border-image-slice: 1;
     background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(to bottom, #21c8f6 98%, #637bff -52%);
     background-origin: border-box;
     background-clip: content-box, border-box;

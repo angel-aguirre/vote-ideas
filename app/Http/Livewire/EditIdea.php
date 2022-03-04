@@ -51,6 +51,9 @@ class EditIdea extends Component
         ]);
 
         $this->emit('ideaWasUpdated');
-        $this->emit('openSuccessNotification', 'Idea was updated successfully!');
+        $this->emit('openNotification', [
+            'message' => 'Idea was updated successfully!',
+            'type' => 'success',
+        ]);
     }
 }

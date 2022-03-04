@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
@@ -48,10 +48,12 @@
                         @endauth
                     </div>
                 @endif
-                <a href="#">
-                    <img src="https://www.gravatar.com/avatar/000?d=mp" alt="Avatar del usuario"
-                        class="w-10 h-10 rounded-full">
-                </a>
+                @auth
+                    <a href="#">
+                        <img src="{{ auth()->user()->avatar }}" alt="Avatar del usuario"
+                            class="w-10 h-10 rounded-full">
+                    </a>
+                @endauth
             </div>
         </header><!-- fin-header -->
 

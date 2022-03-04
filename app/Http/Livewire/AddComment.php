@@ -51,6 +51,9 @@ class AddComment extends Component
 
         // get the comment inserted id
         $this->emit('commentWasAdded', $comment->id);
-        $this->emit('openSuccessNotification', 'Comment was posted!');
+        $this->emit('openNotification', [
+            'message' => 'Comment was posted!',
+            'type' => 'success',
+        ]);
     }
 }

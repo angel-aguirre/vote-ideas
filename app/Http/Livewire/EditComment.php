@@ -42,6 +42,9 @@ class EditComment extends Component
         $this->comment->save();
 
         $this->emit('commentWasUpdated');
-        $this->emit('openSuccessNotification', 'Comment was updated!');
+        $this->emit('openNotification', [
+            'message' => 'Comment was updated!',
+            'type' => 'success',
+        ]);
     }
 }

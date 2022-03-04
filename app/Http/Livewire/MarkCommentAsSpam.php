@@ -34,6 +34,9 @@ class MarkCommentAsSpam extends Component
         Comment::find($this->comment->id)->increment('spam_reports', 1);
 
         $this->emit('commentWasMarkedAsSpam');
-        $this->emit('openSuccessNotification', 'Comment was marked as spam!');
+        $this->emit('openNotification', [
+            'message' => 'Comment was marked as spam!',
+            'type' => 'success',
+        ]);
     }
 }

@@ -32,6 +32,16 @@ class SetStatus extends Component
         if ( !auth()->check() || !auth()->user()->isAdmin() ){
             return Response::HTTP_FORBIDDEN;
         }
+        
+        if ( $this->idea->status_id == $this->status ) {
+            $this->emit('statusWasUpdated');
+            $this->emit('openNotification', [
+                'message' => 'Status is the same.',
+                'type' => 'error',
+            ]);
+
+            return;
+        }
 
         $this->idea->status_id = $this->status;
         $this->idea->save();
@@ -51,6 +61,9 @@ class SetStatus extends Component
         $this->reset('comment');
 
         $this->emit('statusWasUpdated');
-        $this->emit('openSuccessNotification', 'Status was updated successfully.');
+        $this->emit('openNotification', [
+            'message' => 'Status was updated successfully.',
+            'type' => 'success',
+        ]);
     }
 }

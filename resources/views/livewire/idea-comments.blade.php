@@ -15,7 +15,7 @@
     @else
         <div class="mx-auto w-70 mt-12">
             <img src="{{ asset('img/no-ideas.svg') }}" alt="No Ideas"
-                class="mx-auto">
+                class="mx-auto mix-blend-luminosity">
             <div class="text-gray-400 text-center font-bold mt-6">This idea has no comments yet...</div>
         </div>
     @endif

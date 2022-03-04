@@ -30,6 +30,9 @@ class MarkIdeaAsSpam extends Component
         Idea::find($this->idea->id)->increment('spam_reports', 1);
 
         $this->emit('ideaWasMarkedAsSpam');
-        $this->emit('openSuccessNotification', 'Idea was marked as spam!');
+        $this->emit('openNotification', [
+            'message' => 'Idea was marked as spam!',
+            'type' => 'success',
+        ]);
     }
 }

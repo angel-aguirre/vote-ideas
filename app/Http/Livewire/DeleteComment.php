@@ -36,6 +36,9 @@ class DeleteComment extends Component
         $this->comment = Comment::make();
 
         $this->emit('commentWasDeleted');
-        $this->emit('openSuccessNotification', 'Comment was deleted!');
+        $this->emit('openNotification', [
+            'message' => 'Comment was deleted!',
+            'type' => 'success',
+        ]);
     }
 }
