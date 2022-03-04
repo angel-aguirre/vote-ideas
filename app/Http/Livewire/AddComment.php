@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Livewire\Traits\WithAuthRedirects;
 use App\Notifications\CommentAdded;
 use App\Models\Comment;
 use App\Models\Idea;
@@ -10,6 +11,8 @@ use Livewire\Component;
 
 class AddComment extends Component
 {
+    use WithAuthRedirects;
+
     public $idea;
     public $comment;
 
